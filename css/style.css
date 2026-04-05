@@ -356,27 +356,16 @@ nav {
 }
 
 .service-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--primary-light);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 1.25rem;
   color: var(--primary);
-  transition: transform var(--transition), background var(--transition);
 }
 
 .service-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.5;
 }
 
-.service-card:hover .service-icon {
-  transform: scale(1.08);
-  background: var(--primary-light);
-}
 
 .service-card h3 {
   font-family: var(--heading);
@@ -569,20 +558,15 @@ nav {
 }
 
 .contact-item-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--primary-light);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--primary);
   flex-shrink: 0;
+  display: flex;
 }
 
 .contact-item-icon svg {
   width: 20px;
   height: 20px;
+  stroke-width: 1.5;
 }
 
 .contact-item-label {
