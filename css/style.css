@@ -454,7 +454,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .duria-tag {
@@ -510,6 +510,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  margin-top: 3.5rem;
 }
 
 .duria-pill {
@@ -564,6 +565,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+  margin-top: 3.5rem;
 }
 
 .contact-item {
@@ -790,6 +792,11 @@ hr.rule {
 
   .contact-items {
     grid-template-columns: 1fr;
+    margin-top: 0;
+  }
+
+  .duria-pills {
+    margin-top: 0;
   }
 
   .footer-inner {
