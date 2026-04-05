@@ -509,7 +509,7 @@ nav {
   font-weight: 500;
   color: rgba(255,255,255,0.85);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
@@ -528,6 +528,7 @@ nav {
   border-radius: 50%;
   background: var(--accent);
   flex-shrink: 0;
+  margin-top: 6px;
 }
 
 /* ============================================
