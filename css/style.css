@@ -6,15 +6,12 @@
   --primary-dark: #065A5E;
   --primary-light: #E0F5F5;
   --secondary: #1B4F72;
-  --accent: #14B8A6;
-  --accent-glow: rgba(13,115,119,0.12);
 
   /* Neutrals */
   --ink: #1A2332;
   --ink-muted: #5A6B7B;
   --ink-faint: #8E9BAA;
   --bg: #F4F7F9;
-  --bg-warm: #F0F6F6;
   --bg-card: #ffffff;
   --rule: #DCE3E8;
 
@@ -318,7 +315,7 @@ nav {
   content: '';
   width: 20px;
   height: 2px;
-  background: var(--accent);
+  background: var(--primary);
   border-radius: 1px;
 }
 
@@ -380,7 +377,7 @@ nav {
 
 .service-card:hover .service-icon {
   transform: scale(1.08);
-  background: var(--accent-glow);
+  background: var(--primary-light);
 }
 
 .service-card h3 {
@@ -439,7 +436,7 @@ nav {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: rgba(255,255,255,0.5);
   margin-bottom: 1rem;
 }
 
@@ -512,7 +509,7 @@ nav {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: rgba(255,255,255,0.5);
   flex-shrink: 0;
   margin-top: 6px;
 }
