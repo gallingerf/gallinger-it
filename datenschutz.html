@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Datenschutz – Gallinger IT</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,17 +11,24 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">Gallinger IT</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html#leistungen">Leistungen</a></li>
       <li><a href="index.html#duria">DURIA</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
-      <li><a class="nav-cta" href="https://get.teamviewer.com/6xcjs8c" target="_blank">TeamViewer</a></li>
+      <li><a class="nav-cta" href="https://get.teamviewer.com/6xcjs8c" target="_blank">Fernwartung</a></li>
     </ul>
   </div>
 </nav>
 
 <main>
-  <div class="prose-page">
+  <div class="prose-page container">
     <h1>Datenschutz&shy;erklärung</h1>
 
     <h2>1. Verantwortliche Stelle</h2>
@@ -42,8 +47,8 @@
 
     <hr class="rule">
 
-    <h2>3. Schriftarten (Google Fonts)</h2>
-    <p>Diese Website nutzt Google Fonts (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) zur einheitlichen Darstellung von Schriftarten. Beim Laden der Seite wird eine Verbindung zu Googles Servern hergestellt, wodurch Ihre IP-Adresse übertragen werden kann. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen finden Sie unter <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">https://policies.google.com/privacy</a>.</p>
+    <h2>3. Schriftarten und Icons</h2>
+    <p>Diese Website verwendet Schriftarten (Plus Jakarta Sans, Inter) und Icons (Lucide), die lokal auf dem Webserver gehostet werden. Es findet beim Laden der Seite keine Verbindung zu externen Servern (z. B. Google) statt. Es werden keine personenbezogenen Daten an Dritte übertragen.</p>
 
     <hr class="rule">
 
@@ -76,12 +81,29 @@
 </main>
 
 <footer>
-  <p>© 2026 Gallinger IT · Florian Gallinger · Köln</p>
-  <ul class="footer-links">
-    <li><a href="impressum.html">Impressum</a></li>
-    <li><a href="datenschutz.html">Datenschutz</a></li>
-  </ul>
+  <div class="footer-inner">
+    <p>© 2026 Gallinger IT · Florian Gallinger · Köln</p>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
 </footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 </body>
 </html>
