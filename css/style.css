@@ -21,7 +21,7 @@
   /* Typography */
   --heading: 'Plus Jakarta Sans', system-ui, sans-serif;
   --body: 'Inter', system-ui, sans-serif;
-  --max: 1080px;
+  --max: 1240px;
 
   /* Effects */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
@@ -45,6 +45,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
 /* ============================================
    NAV
    ============================================ */
@@ -56,12 +62,12 @@ nav {
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--rule);
   z-index: 100;
-  padding: 0 2rem;
 }
 
 .nav-inner {
   max-width: var(--max);
   margin: 0 auto;
+  padding: 0 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,7 +85,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   list-style: none;
   align-items: center;
 }
@@ -112,7 +118,6 @@ nav {
   box-shadow: var(--shadow-teal);
 }
 
-/* Mobile menu toggle */
 .nav-toggle {
   display: none;
   background: none;
@@ -129,23 +134,46 @@ nav {
 }
 
 /* ============================================
-   MAIN WRAPPER
-   ============================================ */
-main {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* ============================================
-   HERO
+   HERO – Full-bleed with image background
    ============================================ */
 .hero {
-  padding: 5rem 0 4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  position: relative;
+  min-height: 520px;
+  display: flex;
   align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(244,247,249,0.97) 0%, rgba(244,247,249,0.92) 45%, rgba(244,247,249,0.4) 70%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 560px;
 }
 
 .hero-label {
@@ -173,7 +201,7 @@ main {
 
 .hero h1 {
   font-family: var(--heading);
-  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -210,7 +238,7 @@ main {
   font-family: var(--body);
   font-size: 15px;
   font-weight: 600;
-  padding: 13px 26px;
+  padding: 13px 28px;
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
@@ -240,57 +268,35 @@ main {
   border-color: var(--primary);
 }
 
-/* Hero Image */
-.hero-image {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-}
-
-.hero-image img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(13,115,119,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-
 /* ============================================
-   TRUST BAR
+   TRUST BAR – Full-width teal band
    ============================================ */
+.trust-bar-wrap {
+  background: var(--primary);
+}
+
 .trust-bar {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 3rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-bottom: 5rem;
+  gap: 0;
 }
 
 .trust-item {
-  background: var(--bg-card);
-  padding: 1.5rem;
+  padding: 1.75rem 2rem;
   text-align: center;
-  transition: background var(--transition);
+  border-right: 1px solid rgba(255,255,255,0.12);
 }
 
-.trust-item:hover { background: var(--bg-warm); }
+.trust-item:last-child { border-right: none; }
 
 .trust-num {
   font-family: var(--heading);
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 800;
-  color: var(--primary);
+  color: #fff;
   line-height: 1;
   margin-bottom: 4px;
   letter-spacing: -0.02em;
@@ -298,7 +304,7 @@ main {
 
 .trust-label {
   font-size: 13px;
-  color: var(--ink-muted);
+  color: rgba(255,255,255,0.65);
   font-weight: 500;
 }
 
@@ -307,7 +313,7 @@ main {
    ============================================ */
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-tag {
@@ -332,7 +338,7 @@ main {
 
 .section-title {
   font-family: var(--heading);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.02em;
@@ -343,27 +349,27 @@ main {
   font-size: 16px;
   color: var(--ink-muted);
   margin-top: 0.75rem;
-  max-width: 560px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.7;
 }
 
 /* ============================================
-   SERVICES GRID
+   SERVICES – Wide 3-col cards
    ============================================ */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 5rem;
+  gap: 24px;
+  margin-bottom: 0;
 }
 
 .service-card {
   background: var(--bg-card);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: 2.25rem;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
@@ -374,15 +380,15 @@ main {
 }
 
 .service-icon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: var(--primary-light);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
-  font-size: 22px;
+  font-size: 24px;
   transition: transform var(--transition), background var(--transition);
 }
 
@@ -393,7 +399,7 @@ main {
 
 .service-card h3 {
   font-family: var(--heading);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--ink);
@@ -406,19 +412,12 @@ main {
 }
 
 /* ============================================
-   DURIA SECTION
+   DURIA – Full-bleed dark section
    ============================================ */
-.duria-section {
+.duria-wrap {
+  background: var(--secondary);
   position: relative;
-  border-radius: 20px;
-  padding: 4rem;
-  margin-bottom: 5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
   overflow: hidden;
-  color: #fff;
 }
 
 .duria-bg {
@@ -431,18 +430,19 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.15;
 }
 
-.duria-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(6,90,94,0.92) 0%, rgba(27,79,114,0.88) 100%);
-}
-
-.duria-section > *:not(.duria-bg) {
+.duria-section {
   position: relative;
   z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
 .duria-tag {
@@ -459,7 +459,7 @@ main {
 
 .duria-section h2 {
   font-family: var(--heading);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
@@ -469,7 +469,7 @@ main {
 
 .duria-section p {
   font-size: 15px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.65);
   line-height: 1.8;
   margin-bottom: 1.75rem;
 }
@@ -482,42 +482,46 @@ main {
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 10px 22px;
+  background: var(--primary);
+  padding: 12px 24px;
   border-radius: var(--radius-sm);
-  transition: background var(--transition), border-color var(--transition);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .duria-cta:hover {
-  background: rgba(255,255,255,0.2);
-  border-color: rgba(255,255,255,0.4);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-teal);
 }
 
 .duria-pills {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .duria-pill {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
-  padding: 16px 20px;
+  padding: 16px 18px;
   font-size: 14px;
   font-weight: 500;
   color: rgba(255,255,255,0.85);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 
+.duria-pill:last-child {
+  grid-column: 1 / -1;
+}
+
 .duria-pill:hover {
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(255,255,255,0.25);
-  transform: translateX(4px);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
 }
 
 .duria-pill::before {
@@ -531,19 +535,18 @@ main {
 }
 
 /* ============================================
-   CONTACT
+   CONTACT – Wide layout
    ============================================ */
 .contact-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  padding-bottom: 5rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
   align-items: start;
 }
 
 .contact-section h2 {
   font-family: var(--heading);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -559,16 +562,16 @@ main {
 }
 
 .contact-items {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 18px 20px;
+  gap: 14px;
+  padding: 20px;
   background: var(--bg-card);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
@@ -622,14 +625,14 @@ main {
    FOOTER
    ============================================ */
 footer {
-  background: var(--secondary);
-  padding: 2rem;
+  background: var(--ink);
   margin-top: 0;
 }
 
 .footer-inner {
   max-width: var(--max);
   margin: 0 auto;
+  padding: 2rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -637,7 +640,7 @@ footer {
 
 footer p {
   font-size: 13px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.4);
 }
 
 .footer-links {
@@ -648,7 +651,7 @@ footer p {
 
 .footer-links a {
   font-size: 13px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.4);
   text-decoration: none;
   transition: color var(--transition);
 }
@@ -656,7 +659,7 @@ footer p {
 .footer-links a:hover { color: #fff; }
 
 /* ============================================
-   PROSE PAGES (Impressum, Datenschutz)
+   PROSE PAGES
    ============================================ */
 .prose-page {
   padding: 4rem 0 5rem;
@@ -701,9 +704,16 @@ hr.rule {
 }
 
 /* ============================================
-   RESPONSIVE: TABLET (< 768px)
+   SPACING SECTIONS
    ============================================ */
-@media (max-width: 768px) {
+.section-pad {
+  padding: 5rem 0;
+}
+
+/* ============================================
+   RESPONSIVE: TABLET
+   ============================================ */
+@media (max-width: 900px) {
   .nav-toggle { display: block; }
 
   .nav-links {
@@ -737,17 +747,26 @@ hr.rule {
     font-size: 15px !important;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 3rem 0 3rem;
-  }
+  .container { padding: 0 2rem; }
+  .nav-inner { padding: 0 2rem; }
+  .hero-content { padding: 4rem 2rem; }
+  .trust-bar { padding: 0 2rem; }
+  .duria-section { padding: 4rem 2rem; }
+  .footer-inner { padding: 2rem; }
 
-  .hero-image img { height: 300px; }
+  .hero { min-height: 420px; }
+
+  .hero-bg::after {
+    background: linear-gradient(180deg, rgba(244,247,249,0.95) 0%, rgba(244,247,249,0.85) 60%, rgba(244,247,249,0.5) 100%);
+  }
 
   .trust-bar {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .trust-item { border-right: none; }
+  .trust-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.12); }
+  .trust-item:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.12); }
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -755,14 +774,24 @@ hr.rule {
 
   .duria-section {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2.5rem 2rem;
+    gap: 2.5rem;
+  }
+
+  .duria-pills {
+    grid-template-columns: 1fr;
+  }
+
+  .duria-pill:last-child {
+    grid-column: auto;
   }
 
   .contact-section {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding-bottom: 3rem;
+  }
+
+  .contact-items {
+    grid-template-columns: 1fr 1fr;
   }
 
   .footer-inner {
@@ -773,32 +802,34 @@ hr.rule {
 }
 
 /* ============================================
-   RESPONSIVE: MOBILE (< 480px)
+   RESPONSIVE: MOBILE
    ============================================ */
-@media (max-width: 480px) {
-  main { padding: 0 1.25rem; }
-  nav { padding: 0 1.25rem; }
+@media (max-width: 540px) {
+  .container { padding: 0 1.25rem; }
+  .nav-inner { padding: 0 1.25rem; }
+  .hero-content { padding: 3rem 1.25rem; }
+  .trust-bar { padding: 0; }
+  .duria-section { padding: 3rem 1.25rem; }
+  .footer-inner { padding: 1.5rem 1.25rem; }
 
-  .hero { padding: 2rem 0 2rem; }
+  .section-pad { padding: 3.5rem 0; }
+
+  .hero { min-height: 380px; }
   .hero h1 { font-size: 1.75rem; }
-  .hero-image img { height: 240px; }
 
-  .trust-bar { margin-bottom: 3rem; }
-  .trust-num { font-size: 22px; }
+  .trust-num { font-size: 24px; }
+  .trust-item { padding: 1.25rem 1rem; }
 
   .services-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .service-card { padding: 1.5rem; }
+  .service-card { padding: 1.75rem; }
 
-  .duria-section {
-    padding: 2rem 1.5rem;
-    border-radius: var(--radius);
+  .contact-items {
+    grid-template-columns: 1fr;
   }
 
   .prose-page h1 { font-size: 1.75rem; }
-
-  footer { padding: 2rem 1.25rem; }
 }

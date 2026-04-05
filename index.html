@@ -31,11 +31,13 @@
   </div>
 </nav>
 
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div>
+<!-- HERO – Full-bleed mit Hintergrundbild -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="" loading="eager">
+  </div>
+  <div class="hero-content">
+    <div class="hero-inner">
       <p class="hero-label">IT-Support für Arztpraxen · Köln &amp; NRW</p>
       <h1>Ihr Spezialist für <em>DURIA</em> und Praxis-IT.</h1>
       <p class="hero-text">Wir betreuen medizinische Praxen in Köln und ganz Nordrhein-Westfalen – von der Praxissoftware über Telematik bis zur sicheren IT-Infrastruktur.</p>
@@ -44,12 +46,11 @@
         <a class="btn-secondary" href="#leistungen">Leistungen ansehen</a>
       </div>
     </div>
-    <div class="hero-image">
-      <img src="img/hero.jpg" alt="Arzt arbeitet am Laptop" loading="eager">
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TRUST BAR -->
+<!-- TRUST BAR – Full-width teal band -->
+<div class="trust-bar-wrap">
   <div class="trust-bar">
     <div class="trust-item">
       <div class="trust-num">80+</div>
@@ -68,52 +69,58 @@
       <div class="trust-label">Servicegebiet</div>
     </div>
   </div>
+</div>
 
-  <!-- LEISTUNGEN -->
-  <div class="section-header" id="leistungen">
-    <p class="section-tag">Leistungen</p>
-    <h2 class="section-title">Alles aus einer Hand für Ihre Praxis</h2>
-    <p class="section-subtitle">Von DURIA-Support über Telematik bis IT-Sicherheit – wir kümmern uns um Ihre gesamte IT.</p>
+<!-- LEISTUNGEN -->
+<div class="section-pad">
+  <div class="container">
+    <div class="section-header" id="leistungen">
+      <p class="section-tag">Leistungen</p>
+      <h2 class="section-title">Alles aus einer Hand für Ihre Praxis</h2>
+      <p class="section-subtitle">Von DURIA-Support über Telematik bis IT-Sicherheit – wir kümmern uns um Ihre gesamte IT.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">⚕</div>
+        <h3>DURIA-Betreuung</h3>
+        <p>Installation, Konfiguration, Updates und täglicher Support für DURIA-Praxissoftware – inklusive Telematik und Abrechnung.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡</div>
+        <h3>IT-Sicherheit &amp; Firewall</h3>
+        <p>Firewall, Patchmanagement, Endpoint-Security und DSGVO-konforme Sicherheitskonzepte für Arztpraxen.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📡</div>
+        <h3>Telematik-Infrastruktur</h3>
+        <p>Einrichtung und Betrieb der TI-Konnektoren, ePA, eAU, eRezept und Kartenterminals nach gematik-Standard.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖥</div>
+        <h3>IT-Infrastruktur</h3>
+        <p>Server, Netzwerk, Peripherie und Arbeitsplätze – Beschaffung, Einrichtung und laufender Betrieb aus einer Hand.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✦</div>
+        <h3>Digitalisierung &amp; KI</h3>
+        <p>Zukunftssichere Digitalisierung Ihrer Praxis – von der papierlosen Dokumentation bis zu KI-basierten Workflows.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Remote &amp; Vor-Ort-Support</h3>
+        <p>Schnelle Hilfe per Fernwartung oder persönlich in Ihrer Praxis – in Köln und in ganz NRW.</p>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">⚕</div>
-      <h3>DURIA-Betreuung</h3>
-      <p>Installation, Konfiguration, Updates und täglicher Support für DURIA-Praxissoftware – inklusive Telematik und Abrechnung.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛡</div>
-      <h3>IT-Sicherheit &amp; Firewall</h3>
-      <p>Firewall, Patchmanagement, Endpoint-Security und DSGVO-konforme Sicherheitskonzepte für Arztpraxen.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📡</div>
-      <h3>Telematik-Infrastruktur</h3>
-      <p>Einrichtung und Betrieb der TI-Konnektoren, ePA, eAU, eRezept und Kartenterminals nach gematik-Standard.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🖥</div>
-      <h3>IT-Infrastruktur</h3>
-      <p>Server, Netzwerk, Peripherie und Arbeitsplätze – Beschaffung, Einrichtung und laufender Betrieb aus einer Hand.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">✦</div>
-      <h3>Digitalisierung &amp; KI</h3>
-      <p>Zukunftssichere Digitalisierung Ihrer Praxis – von der papierlosen Dokumentation bis zu KI-basierten Workflows.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔧</div>
-      <h3>Remote &amp; Vor-Ort-Support</h3>
-      <p>Schnelle Hilfe per Fernwartung oder persönlich in Ihrer Praxis – in Köln und in ganz NRW.</p>
-    </div>
+<!-- DURIA – Full-bleed dark section -->
+<div class="duria-wrap" id="duria">
+  <div class="duria-bg">
+    <img src="https://images.pexels.com/photos/17323801/pexels-photo-17323801.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" loading="lazy">
   </div>
-
-  <!-- DURIA -->
-  <div class="duria-section" id="duria">
-    <div class="duria-bg">
-      <img src="https://images.pexels.com/photos/17323801/pexels-photo-17323801.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" loading="lazy">
-    </div>
+  <div class="duria-section">
     <div>
       <p class="duria-tag">Spezialisierung</p>
       <h2>DURIA-Experten in NRW</h2>
@@ -128,46 +135,49 @@
       <div class="duria-pill">Online-Rezeption, digitale Aufklärung &amp; KI</div>
     </div>
   </div>
+</div>
 
-  <!-- KONTAKT -->
-  <div class="contact-section" id="kontakt">
-    <div>
-      <h2>Sprechen wir<br>miteinander.</h2>
-      <p class="contact-intro">Wir sind für Praxen in Köln und ganz NRW tätig. Melden Sie sich gerne per E-Mail oder Telefon – oder starten Sie direkt eine Fernwartungssitzung.</p>
-    </div>
-    <div class="contact-items">
-      <div class="contact-item">
-        <div class="contact-item-icon">✉</div>
-        <div>
-          <div class="contact-item-label">E-Mail</div>
-          <div class="contact-item-value"><a href="mailto:mail@gallinger.it">mail@gallinger.it</a></div>
-        </div>
+<!-- KONTAKT -->
+<div class="section-pad">
+  <div class="container">
+    <div class="contact-section" id="kontakt">
+      <div>
+        <h2>Sprechen wir<br>miteinander.</h2>
+        <p class="contact-intro">Wir sind für Praxen in Köln und ganz NRW tätig. Melden Sie sich gerne per E-Mail oder Telefon – oder starten Sie direkt eine Fernwartungssitzung.</p>
       </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">📞</div>
-        <div>
-          <div class="contact-item-label">Telefon</div>
-          <div class="contact-item-value"><a href="tel:+4922142344001">0221 423 44 001</a></div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">✉</div>
+          <div>
+            <div class="contact-item-label">E-Mail</div>
+            <div class="contact-item-value"><a href="mailto:mail@gallinger.it">mail@gallinger.it</a></div>
+          </div>
         </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">🕐</div>
-        <div>
-          <div class="contact-item-label">Servicezeiten</div>
-          <div class="contact-item-value">Mo – Fr, 08:00 – 19:00 Uhr</div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Telefon</div>
+            <div class="contact-item-value"><a href="tel:+4922142344001">0221 423 44 001</a></div>
+          </div>
         </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">🖥</div>
-        <div>
-          <div class="contact-item-label">Fernwartung</div>
-          <div class="contact-item-value"><a href="https://get.teamviewer.com/6xcjs8c" target="_blank">TeamViewer starten →</a></div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Servicezeiten</div>
+            <div class="contact-item-value">Mo – Fr, 08:00 – 19:00 Uhr</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🖥</div>
+          <div>
+            <div class="contact-item-label">Fernwartung</div>
+            <div class="contact-item-value"><a href="https://get.teamviewer.com/6xcjs8c" target="_blank">TeamViewer starten →</a></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-</main>
+</div>
 
 <footer>
   <div class="footer-inner">
