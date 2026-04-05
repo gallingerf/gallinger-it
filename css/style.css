@@ -535,8 +535,8 @@ nav {
    ============================================ */
 .contact-section {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: start;
 }
 
