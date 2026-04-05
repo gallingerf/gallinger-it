@@ -514,10 +514,6 @@ nav {
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
 
-.duria-pill:last-child {
-  grid-column: 1 / -1;
-}
-
 .duria-pill:hover {
   background: rgba(255,255,255,0.12);
   border-color: rgba(255,255,255,0.22);
