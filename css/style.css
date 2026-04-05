@@ -311,13 +311,6 @@ nav {
   margin-bottom: 1rem;
 }
 
-.section-tag::before {
-  content: '';
-  width: 20px;
-  height: 2px;
-  background: var(--primary);
-  border-radius: 1px;
-}
 
 .section-title {
   font-family: var(--heading);
