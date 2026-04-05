@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impressum – Gallinger IT</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,24 +11,32 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">Gallinger IT</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html#leistungen">Leistungen</a></li>
       <li><a href="index.html#duria">DURIA</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
-      <li><a class="nav-cta" href="https://get.teamviewer.com/6xcjs8c" target="_blank">TeamViewer</a></li>
+      <li><a class="nav-cta" href="https://get.teamviewer.com/6xcjs8c" target="_blank">Fernwartung</a></li>
     </ul>
   </div>
 </nav>
 
 <main>
-  <div class="prose-page">
+  <div class="prose-page container">
     <h1>Impressum</h1>
 
-    <h2>Angaben gemäß § 5 TMG</h2>
+    <h2>Angaben gemäß § 5 DDG</h2>
     <p>
       Gallinger IT – Florian Gallinger<br>
       Neuhöfferstr. 2<br>
-      50679 Köln
+      50679 Köln<br>
+      Deutschland
     </p>
 
     <h2>Kontakt</h2>
@@ -42,7 +48,7 @@
 
     <h2>Umsatzsteuer-ID</h2>
     <p>
-      Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+      Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
       DE324964577
     </p>
 
@@ -55,7 +61,7 @@
     <hr class="rule">
 
     <h2>Haftung für Inhalte</h2>
-    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
     <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
 
     <h2>Haftung für Links</h2>
@@ -67,12 +73,29 @@
 </main>
 
 <footer>
-  <p>© 2026 Gallinger IT · Florian Gallinger · Köln</p>
-  <ul class="footer-links">
-    <li><a href="impressum.html">Impressum</a></li>
-    <li><a href="datenschutz.html">Datenschutz</a></li>
-  </ul>
+  <div class="footer-inner">
+    <p>© 2026 Gallinger IT · Florian Gallinger · Köln</p>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
 </footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 </body>
 </html>
