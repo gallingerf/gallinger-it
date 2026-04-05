@@ -365,6 +365,14 @@ nav {
   line-height: 1.7;
 }
 
+.section-signature {
+  font-size: 15px;
+  color: var(--ink);
+  margin-top: 1rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
 /* ============================================
    SERVICES – Wide 3-col cards
    ============================================ */
