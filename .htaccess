@@ -17,6 +17,9 @@ RewriteRule ^ https://gallinger.it%{REQUEST_URI} [L,R=301]
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 
+# Eigene 404-Seite
+ErrorDocument 404 /404.html
+
 # Cache-Control: statische Dateien cachen
 <IfModule mod_expires.c>
   ExpiresActive On

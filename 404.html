@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seite nicht gefunden – Gallinger IT</title>
+<meta name="theme-color" content="#0D7377">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Gallinger IT</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/#leistungen">Leistungen</a></li>
+      <li><a href="/#duria">DURIA</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+      <li><a class="nav-cta" href="https://get.teamviewer.com/6xcjs8c" target="_blank" rel="noopener noreferrer">Fernwartung</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="prose-page" style="text-align: center; padding: 6rem 2rem;">
+    <h1>Seite nicht gefunden</h1>
+    <p style="margin: 1.5rem 0 2rem;">Die angeforderte Seite existiert leider nicht.</p>
+    <a class="btn-primary" href="/">Zur Startseite</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Gallinger IT &middot; Florian Gallinger &middot; Köln</p>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
