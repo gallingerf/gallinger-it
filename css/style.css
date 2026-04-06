@@ -453,8 +453,25 @@ nav {
   padding: 5rem 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-rows: auto 1fr;
+  gap: 0 4rem;
+}
+
+.duria-heading {
+  grid-column: 1;
+}
+
+.duria-body {
+  grid-column: 1;
+}
+
+.duria-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
 }
 
 .duria-tag {
@@ -506,13 +523,6 @@ nav {
   box-shadow: var(--shadow-teal);
 }
 
-.duria-pills {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 3.5rem;
-}
-
 .duria-pill {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.1);
@@ -540,8 +550,25 @@ nav {
 .contact-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-rows: auto 1fr;
+  gap: 0 4rem;
+}
+
+.contact-heading {
+  grid-column: 1;
+}
+
+.contact-body {
+  grid-column: 1;
+}
+
+.contact-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
 }
 
 .contact-section h2 {
@@ -559,13 +586,6 @@ nav {
   color: var(--ink-muted);
   line-height: 1.75;
   font-weight: 400;
-}
-
-.contact-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 3.5rem;
 }
 
 .contact-item {
@@ -778,7 +798,15 @@ hr.rule {
 
   .duria-section {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     gap: 2.5rem;
+  }
+
+  .duria-heading,
+  .duria-body,
+  .duria-pills {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .duria-pills {
@@ -787,16 +815,19 @@ hr.rule {
 
   .contact-section {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     gap: 2rem;
+  }
+
+  .contact-heading,
+  .contact-body,
+  .contact-items {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .contact-items {
     grid-template-columns: 1fr;
-    margin-top: 0;
-  }
-
-  .duria-pills {
-    margin-top: 0;
   }
 
   .footer-inner {
