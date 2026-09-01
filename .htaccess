@@ -8,6 +8,15 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://gallinger.it%{REQUEST_URI} [L,R=301]
 
+# Saubere URLs: /impressum.html -> /impressum (301, kanonische Form)
+RewriteCond %{THE_REQUEST} \s/+([^\s]+)\.html[\s?] [NC]
+RewriteRule ^ https://gallinger.it/%1 [R=301,L]
+
+# Saubere URLs: /impressum -> impressum.html (intern, URL bleibt sichtbar)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
 # Security Headers
 <IfModule mod_headers.c>
   Header set X-Frame-Options "SAMEORIGIN"
