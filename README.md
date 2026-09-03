@@ -1,6 +1,20 @@
 # gallinger.it – Website
 
-Statische Website für Gallinger IT, gehostet auf GitHub Pages.
+Statische Website der Gallinger IT GmbH.
+
+**Live-Hosting: Tecspace (securehost), Auslieferung per nginx unter https://gallinger.it (gallinger-it.de leitet dorthin um).**
+GitHub Pages (gallingerf.github.io/gallinger-it) ist nur ein Spiegel dieses Repos, ein `git push` ändert die Live-Seite NICHT.
+
+## Deploy (Live-Seite aktualisieren)
+
+```
+cd c:\projects\gallinger-tools
+.venv\Scripts\python.exe tools\webseite\deploy_ftp.py --seit HEAD~1   # nur geänderte Dateien
+.venv\Scripts\python.exe tools\webseite\deploy_ftp.py               # alles
+```
+
+Zugangsdaten liegen in 1Password (Tresor `betrieb`, Item „FTP Tecspace gallinger-it.de"), das Skript holt sie über das op-Relay.
+`versand/` (interner Briefkopf) und `v1/` (Altversion) werden nie hochgeladen.
 
 ## Struktur
 
@@ -14,7 +28,7 @@ gallinger-it/
 └── README.md
 ```
 
-## GitHub Pages einrichten
+## GitHub Pages (nur Spiegel, historisch)
 
 1. Repository anlegen: `gallinger-it` (oder beliebiger Name)
 2. Code pushen
@@ -46,5 +60,4 @@ empfiehlt sich die lokale Einbindung:
 
 ## Pflege
 
-Inhalte ändern sich selten – bei Bedarf direkt in den HTML-Dateien bearbeiten
-und pushen. GitHub Pages deployed automatisch innerhalb weniger Minuten.
+Inhalte ändern sich selten. Bei Bedarf direkt in den HTML-Dateien bearbeiten, committen, pushen (Spiegel) und **per FTP-Skript deployen** (siehe oben), sonst bleibt die Live-Seite alt.
