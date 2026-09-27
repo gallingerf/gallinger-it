@@ -734,6 +734,20 @@ hr.rule {
   padding: 5rem 0;
 }
 
+/* Imagefilm */
+.film-pad { padding-bottom: 0; }
+.film-header { margin-bottom: 2rem; }
+.film-frame {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--ink);
+  line-height: 0;
+}
+.film-frame video { width: 100%; height: auto; display: block; }
+
 /* ============================================
    RESPONSIVE: TABLET
    ============================================ */
