@@ -1,5 +1,11 @@
-# HTTPS erzwingen
 RewriteEngine On
+
+# Kein PHP auf dieser Seite: PHP-Aufrufe sperren, bevor der Hoster sie an PHP weiterreicht.
+# Tecspace gibt sonst jede .php-Adresse an PHP-FPM, auch wenn die Datei gar nicht existiert
+# (Antwort "File not found."). Anlass PHP2Shell (CVE-2026-109618/-109619), 21.10.2026.
+RewriteRule \.(php\d*|phtml|phar)(/|$) - [F,NC]
+
+# HTTPS erzwingen
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
