@@ -14,6 +14,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://gallinger.it%{REQUEST_URI} [L,R=301]
 
+# Startseite nur unter /: /index und /index.html leiten dorthin um
+RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+RewriteRule ^ https://gallinger.it/ [R=301,L]
+
 # Saubere URLs: /impressum.html -> /impressum (301, kanonische Form)
 RewriteCond %{THE_REQUEST} \s/+([^\s]+)\.html[\s?] [NC]
 RewriteRule ^ https://gallinger.it/%1 [R=301,L]

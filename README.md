@@ -3,7 +3,7 @@
 Statische Website der Gallinger IT GmbH.
 
 **Live-Hosting: Tecspace (securehost), Auslieferung per nginx unter https://gallinger.it (gallinger-it.de leitet dorthin um).**
-GitHub Pages (gallingerf.github.io/gallinger-it) ist nur ein Spiegel dieses Repos, ein `git push` ändert die Live-Seite NICHT.
+GitHub ist nur die Sicherung dieses Repos. GitHub Pages ist seit dem 10.11.2026 abgeschaltet, ein `git push` ändert die Live-Seite NICHT.
 
 ## Deploy (Live-Seite aktualisieren)
 
@@ -11,10 +11,12 @@ GitHub Pages (gallingerf.github.io/gallinger-it) ist nur ein Spiegel dieses Repo
 cd c:\projects\gallinger-tools
 .venv\Scripts\python.exe tools\webseite\deploy_ftp.py --seit HEAD~1   # nur geänderte Dateien
 .venv\Scripts\python.exe tools\webseite\deploy_ftp.py               # alles
+.venv\Scripts\python.exe tools\webseite\deploy_ftp.py --loeschen <datei>   # aus dem Repo entfernte Datei auch live löschen
 ```
 
 Zugangsdaten liegen in 1Password (Tresor `betrieb`, Item „FTP Tecspace gallinger-it.de"), das Skript holt sie über das op-Relay.
 `versand/` (interner Briefkopf) und `v1/` (Altversion) werden nie hochgeladen.
+Ein Upload entfernt nichts: Wer eine Datei aus dem Repo löscht, nimmt sie mit `--loeschen` auch vom Server.
 
 ## Struktur
 
@@ -23,41 +25,21 @@ gallinger-it/
 ├── index.html          # Startseite
 ├── impressum.html      # Impressum
 ├── datenschutz.html    # Datenschutzerklärung
-├── css/
-│   └── style.css       # Gemeinsames Stylesheet
-└── README.md
+├── 404.html            # Fehlerseite
+├── .htaccess           # HTTPS, Weiterleitungen, saubere URLs, Security-Header, PHP-Sperre
+├── robots.txt, sitemap.xml
+├── css/style.css       # Gemeinsames Stylesheet
+├── fonts/              # Plus Jakarta Sans, Inter (lokal gehostet)
+├── img/                # Hero, DURIA-Hintergrund, Vorschaubild des Films
+├── video/              # Imagefilm (selbst gehostet)
+├── versand/            # interner Briefkopf, wird nicht hochgeladen
+└── v1/                 # Altversion, wird nicht hochgeladen
 ```
 
-## GitHub Pages (nur Spiegel, historisch)
+## Keine Verbindungen zu Dritten
 
-1. Repository anlegen: `gallinger-it` (oder beliebiger Name)
-2. Code pushen
-3. In den Repository-Einstellungen unter **Pages** → Source: `main` Branch, Root `/`
-4. Custom Domain: `gallinger.it` eintragen
-5. **Enforce HTTPS** aktivieren
-
-Danach in Cloudflare DNS:
-- `CNAME www → dein-username.github.io`
-- Vier `A`-Records für `@` auf GitHub Pages IPs (185.199.108-111.153)
-
-## Google Fonts lokal hosten (DSGVO-konform)
-
-Aktuell werden Fonts von Google-Servern geladen. Für den produktiven Betrieb
-empfiehlt sich die lokale Einbindung:
-
-1. Fonts herunterladen über https://google-webfonts-helper.herokuapp.com
-   - DM Serif Display (regular, italic)
-   - DM Sans (300, 400, 500)
-
-2. Dateien in `/fonts/` ablegen
-
-3. In `css/style.css` den `@import`-Block ersetzen durch lokale `@font-face`-Regeln
-
-4. In allen HTML-Dateien den Google Fonts `<link>`-Tag entfernen
-
-5. In `datenschutz.html` Abschnitt 3 (Google Fonts) entsprechend anpassen
-   oder entfernen, da dann keine Verbindung zu Google mehr stattfindet.
+Schriftarten liegen lokal in `fonts/`, die Icons sind als SVG direkt in die Seiten eingebettet, der Imagefilm kommt vom eigenen Webserver. Beim Laden der Seite geht keine Anfrage an fremde Server. So steht es auch in der Datenschutzerklärung (Abschnitt 3). Wer etwas Externes einbindet (Schrift, Skript, Video, Karte), muss die Datenschutzerklärung im selben Zug anpassen.
 
 ## Pflege
 
-Inhalte ändern sich selten. Bei Bedarf direkt in den HTML-Dateien bearbeiten, committen, pushen (Spiegel) und **per FTP-Skript deployen** (siehe oben), sonst bleibt die Live-Seite alt.
+Inhalte ändern sich selten. Bei Bedarf direkt in den HTML-Dateien bearbeiten, committen und **per FTP-Skript deployen** (siehe oben), sonst bleibt die Live-Seite alt. Bei Änderungen an einer Seite das `lastmod`-Datum in `sitemap.xml` nachziehen.
